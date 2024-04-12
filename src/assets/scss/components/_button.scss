@@ -1,13 +1,24 @@
 .alte-button {
   border-radius: var(--border-radius-4);
-  padding: 12px 24px;
-  width: 133px;
-  height: 44px;
+
+
   font-family: var(--font-family);
   font-size: var(--font-size-14);
   font-weight: 500;
   line-height: 175%;
   cursor: pointer;
+
+  &--default {
+    width: 133px;
+    height: 44px;
+    padding: 12px 24px;
+  }
+
+  &--small {
+    height: 40px;
+    width: 125px;
+    padding: 12px 20px;
+  }
 
   &--primary {
     background: var(--neutral-black-b900);
