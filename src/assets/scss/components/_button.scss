@@ -1,0 +1,30 @@
+.alte-button {
+  border-radius: var(--border-radius-4);
+  padding: 12px 24px;
+  width: 133px;
+  height: 44px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-14);
+  font-weight: 500;
+  line-height: 175%;
+  cursor: pointer;
+
+  &--primary {
+    background: var(--neutral-black-b900);
+    color: var(--neutral-white-w900);
+
+    &:hover {
+      background: var(--neutral-black-b800);
+    }
+  }
+
+  &--outline {
+    background: var(--neutral-white-w900);
+    border: 1px solid var(--neutral-black-b200);
+    color: var(--neutral-black-b500);
+
+    &:hover {
+      background: var(--neutral-white-w200);
+    }
+  }
+}
