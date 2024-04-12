@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'alte-button',
+  selector: 'button[alte-button]',
   standalone: true,
   imports: [],
   template: `

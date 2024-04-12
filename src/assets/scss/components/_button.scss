@@ -1,11 +1,8 @@
 .alte-button {
   border-radius: var(--border-radius-4);
-
-
   font-family: var(--font-family);
   font-size: var(--font-size-14);
   font-weight: 500;
-  line-height: 175%;
   cursor: pointer;
 
   &--default {
