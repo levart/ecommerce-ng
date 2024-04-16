@@ -35,4 +35,24 @@
       background: var(--neutral-white-w200);
     }
   }
+
+  &--link {
+    background: transparent;
+    border: none;
+    color: var(--neutral-black-b900);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--outline-black {
+    background: var(--neutral-black-b900);
+    border: 1px solid var(--neutral-black-b200);
+    color: var(--neutral-white-w900);
+
+    &:hover {
+      background: var(--neutral-black-b800);
+    }
+  }
 }

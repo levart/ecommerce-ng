@@ -11,11 +11,13 @@ import {Component, Input} from '@angular/core';
     class: 'alte-button',
     '[class.alte-button--default]': 'size === "default"',
     '[class.alte-button--small]': 'size === "small"',
-    '[class.alte-button--primary]': 'size === "primary"',
+    '[class.alte-button--primary]': 'theme === "primary"',
     '[class.alte-button--outline]': 'theme === "outline"',
+    '[class.alte-button--outline-black]': 'theme === "outline-black"',
+    '[class.alte-button--link]': 'theme === "link"',
   }
 })
 export class ButtonComponent {
   @Input() size: 'default' | 'small' = 'default'
-  @Input() theme: 'primary' | 'outline' = 'primary'
+  @Input() theme: 'primary' | 'outline' | 'link' = 'primary'
 }
