@@ -1,1 +1,14 @@
 <alte-hero-banner/>
+
+<div class="conatiner features">
+  @for(feature of features; track feature){
+    <alte-feature-card
+      [icon]="feature.icon"
+      [title]="feature.title"
+      [description]="feature.description"
+      />
+  }
+
+</div>
+
+

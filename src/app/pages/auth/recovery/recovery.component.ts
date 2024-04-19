@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import {AuthHeadComponent} from "../auth-head/auth-head.component";
 
 @Component({
   selector: 'alte-recovery',
   standalone: true,
-  imports: [],
+    imports: [
+        AuthHeadComponent
+    ],
   templateUrl: './recovery.component.html',
-  styleUrl: './recovery.component.scss'
+  styleUrls: [ '../auth.style.scss','./recovery.component.scss']
 })
 export class RecoveryComponent {
 
