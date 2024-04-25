@@ -4,12 +4,20 @@
 
 <div class="auth-container">
 
-  <form [formGroup]="form">
-    <alte-input
-      label="Name"
-      placeholder="Enter your name"
-      formControlName="name"
+  @if (errorMessage){
+    <alte-alert
+      type="error"
+      [message]="errorMessage"
     />
+  }
+  @if (successMessage){
+    <alte-alert
+      type="success"
+      [message]="successMessage"
+    />
+  }
+
+  <form [formGroup]="form">
     <alte-input
       label="Email"
       placeholder="Enter your email"
