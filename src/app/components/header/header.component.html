@@ -2,7 +2,7 @@
   Get 25% OFF on your first order. Use code: <strong>WELCOME25</strong>
 </div>
 
-<header class="conatiner">
+<header class="container">
   <div class="logo">
     <img src="assets/images/logo.svg" width="40">
     <div class="logo__brand">Ecommerce</div>
@@ -19,7 +19,9 @@
           <div class="menu">
             <ul>
               @for (category of categories$ | async; track category.id) {
-                <li routerLink="/category/{{category.id}}">
+                <li routerLink="/category" [queryParams]="{
+                  category: [category.id]
+                }">
                   {{category.name}}
                 </li>
               }

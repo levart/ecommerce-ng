@@ -15,14 +15,14 @@ body, html {
 }
 
 
-.conatiner {
+.container {
   width: 100%;
   max-width: 1116px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
-.conatiner--fluid {
+.container--fluid {
   width: 100%;
   padding: 0 16px;
 }
@@ -46,4 +46,15 @@ body, html {
     text-transform: capitalize;
     color: var(--neutral-black-b900);
   }
+}
+
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
 }
