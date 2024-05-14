@@ -25,5 +25,11 @@ export class ColorFacade {
 
   getColorById(id: string) {
     return this.colorService.getColorById(id)
+      .pipe(
+        map((color) => ({
+          ...color,
+          id
+        } as Color))
+      )
   }
 }

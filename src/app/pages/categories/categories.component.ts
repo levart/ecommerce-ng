@@ -16,6 +16,7 @@ import {map, Subject, switchMap, takeUntil, tap} from "rxjs";
 import {Category} from "../../core/interfaces/category";
 import {Product} from "../../core/interfaces/product";
 import {Color} from "../../core/interfaces/color";
+import {SizeItemComponent} from "../../components/size-item/size-item.component";
 
 
 @Component({
@@ -28,7 +29,8 @@ import {Color} from "../../core/interfaces/color";
     FilterCardComponent,
     FilterCardCheckboxItemComponent,
     ColorItemComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    SizeItemComponent
   ],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss'
@@ -40,7 +42,6 @@ export class CategoriesComponent {
   categoryFacade = inject(CategoryFacade)
   colorFacade = inject(ColorFacade)
   productFacade = inject(ProductFacade)
-
 
   categories$ = this.categoryFacade.getCategories()
   colors$ = this.colorFacade.getColors()

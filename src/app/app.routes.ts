@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import {CategoriesComponent, HomeComponent} from "./pages";
+import {CategoriesComponent, HomeComponent, ProductComponent} from "./pages";
 import {LayoutComponent} from "./components";
 import {ProfileComponent} from "./pages/profile/profile.component";
 import {authGuard} from "./core/guards";
@@ -20,6 +20,10 @@ export const routes: Routes = [
       {
         path:'category',
         component: CategoriesComponent
+      },
+      {
+        path: 'product/:id',
+        component: ProductComponent
       },
       {
         path: 'profile',
