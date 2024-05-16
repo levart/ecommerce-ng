@@ -6,8 +6,14 @@ import {PasswordUpdateComponent} from "./password-update/password-update.compone
 import {MyProfileComponent} from "./my-profile/my-profile.component";
 import {Routes} from "@angular/router";
 import {ProfileComponent} from "./profile.component";
+import {CartComponent} from "./cart/cart.component";
 
 export const profileRoutes: Routes = [
+  {
+    path: 'cart',
+    canActivate: [authGuard],
+    component: CartComponent
+  },
   {
     path: '',
     component: ProfileComponent,
@@ -37,7 +43,7 @@ export const profileRoutes: Routes = [
       {
         path: 'myProfile',
         component: MyProfileComponent
-      },
+      }
     ]
   }
 ]
