@@ -5,7 +5,19 @@
 <div class="container cart">
 
   <div class="cart__list">
-    cart table
+    <h4>Your cart</h4>
+    <div class="divider"></div>
+    @for(cart of carts$ | async; track cart){
+      <alte-cart-item
+        [product]="cart"
+        (remove)="removeFromCart($event)"
+        (update)="updateToCart($event)"
+      ></alte-cart-item>
+    } @empty {
+      <div class="empty-cart">
+        Your cart is empty
+      </div>
+    }
   </div>
   <div class="cart__details">
     <div class="title">
@@ -15,7 +27,7 @@
     <div class="finance-detail">
       <alte-key-value
         key="Subtotal"
-        value="$0.00"
+        [value]="((sum$ | async) || 0) | currency:'USD':'$'"
       />
       <alte-key-value
         key="Shipping:"
@@ -23,8 +35,29 @@
       />
       <alte-key-value
         key="Tax:"
-        value="$0.00"
+        [value]="((sum$ | async) || 0) * cartFacade.feePercentage | currency:'USD':'$'"
       />
+
+      <div class="divider"></div>
+
+      <alte-key-value
+        key="Total:"
+        [value]="((sum$ | async) || 0) | currency:'USD':'$'"
+      />
+    </div>
+
+    <button
+      class="cart__checkout"
+      alte-button
+      block
+      [disabled]="(sum$ | async) === 0"
+      (click)="checkout()"
+    >
+      Checkout
+    </button>
+
+    <div class="cart__continue-shopping">
+      <a class="cart__continue-shopping--link" routerLink="/">Continue Shopping</a>
     </div>
   </div>
 </div>

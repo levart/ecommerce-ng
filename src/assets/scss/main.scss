@@ -58,3 +58,19 @@ body, html {
   display: flex;
   align-items: center;
 }
+
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--neutral-black-b100);
+  margin: 16px 0;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.bold {
+  font-weight: 700;
+}
