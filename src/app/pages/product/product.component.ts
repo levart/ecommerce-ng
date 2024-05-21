@@ -1,5 +1,5 @@
-import {Component, inject, OnInit, Sanitizer} from '@angular/core';
-import {from, map, mergeMap, Observable, of, share, shareReplay, switchMap} from "rxjs";
+import {Component, inject, OnDestroy, OnInit, Sanitizer} from '@angular/core';
+import {from, map, mergeMap, Observable, of, share, shareReplay, Subject, switchMap, takeUntil} from "rxjs";
 import {ProductService} from "../../services/product.service";
 import {ActivatedRoute, ActivationEnd, Router} from "@angular/router";
 import {AsyncPipe, CurrencyPipe, JsonPipe, NgIf} from "@angular/common";
@@ -19,6 +19,8 @@ import {ButtonComponent} from "../../ui/button/button.component";
 import {DomSanitizer} from "@angular/platform-browser";
 import {ProductItemComponent} from "../../components/product-item/product-item.component";
 import {CartFacade} from "../../facades/cart.facade";
+import {WishlistFacade} from "../../facades/wishlist.facade";
+import {AuthFacade} from "../../facades";
 
 @Component({
   selector: 'alte-product',
@@ -40,13 +42,14 @@ import {CartFacade} from "../../facades/cart.facade";
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })
-export class ProductComponent implements OnInit{
+export class ProductComponent implements OnInit, OnDestroy{
 
   route = inject(ActivatedRoute);
   productFacade = inject(ProductFacade);
   categoryFacade = inject(CategoryFacade);
   colorFacade = inject(ColorFacade);
   cartFacade = inject(CartFacade);
+  wishlistFacade = inject(WishlistFacade);
   sanitazer = inject(DomSanitizer);
 
   get insertScritp() {
@@ -59,6 +62,8 @@ export class ProductComponent implements OnInit{
 
   selectedColor?: string
   quantity: number = 1
+
+  sub$ = new Subject()
 
   product$: Observable<Product> = this.route.params.pipe(
     switchMap((params: any) => this.productFacade.getProduct(params['id'])
@@ -107,10 +112,6 @@ export class ProductComponent implements OnInit{
     //   });
   }
 
-  selectColor($event: Color) {
-
-  }
-
   addToCart(product: Product) {
 
 
@@ -119,7 +120,19 @@ export class ProductComponent implements OnInit{
 
   }
 
-  addToWishlist() {
+  addToWishlist(product: Product) {
+    this.wishlistFacade.addWishlist(product)
+      .pipe(
+        takeUntil(this.sub$)
+      )
+      .subscribe((res) => {
+        console.log(res)
+        alert('Product added to wishlist')
+      })
+  }
 
+  ngOnDestroy() {
+    this.sub$.next(null)
+    this.sub$.complete()
   }
 }

@@ -21,5 +21,4 @@ export class ProductService extends ApiService{
     return this.get<FirebaseDocument<Product>[]>('products.json', {orderBy: '"categoryId"', equalTo: `"${categoryId}"`})
   }
 
-
 }

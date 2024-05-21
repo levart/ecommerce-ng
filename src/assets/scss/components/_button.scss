@@ -64,6 +64,34 @@
       }
     }
   }
+  &--extra-small {
+    height: 35px;
+    width: auto;
+    padding: 0 20px;
+
+    &.alte-button--icon {
+      width: 35px;
+      padding: unset;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &.alte-button--outline-icon {
+      width: 35px;
+      padding: unset;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--neutral-white-w900);
+      border: 1px solid var(--neutral-black-b200);
+      color: var(--neutral-black-b500);
+
+      &:hover {
+        background: var(--neutral-white-w200);
+      }
+    }
+  }
 
   &--primary {
     background: var(--neutral-black-b900);

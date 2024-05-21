@@ -9,6 +9,7 @@ import {ProfileComponent} from "./profile.component";
 import {CartComponent} from "./cart/cart.component";
 import {CheckoutComponent} from "./checkout/checkout.component";
 import {SuccessOrderComponent} from "./success-order/success-order.component";
+import {orderRoutes} from "./orders/order.routes";
 
 export const profileRoutes: Routes = [
   {
@@ -38,7 +39,7 @@ export const profileRoutes: Routes = [
       },
       {
         path: 'orders',
-        component: OrdersComponent
+        loadChildren: () => import('./orders/order.routes').then(m => m.orderRoutes)
       },
       {
         path: 'wishlist',
