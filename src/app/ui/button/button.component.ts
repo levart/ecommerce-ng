@@ -27,7 +27,7 @@ export class ButtonComponent {
   @Input() theme: 'primary' | 'outline' | 'link' | 'icon' | 'outline-icon' = 'primary'
   @Input({
     transform: booleanAttribute
-  }) block: boolean = false
+  }) block = false
 
 
 }
