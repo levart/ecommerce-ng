@@ -28,4 +28,6 @@ export class ButtonComponent {
   @Input({
     transform: booleanAttribute
   }) block: boolean = false
+
+
 }
